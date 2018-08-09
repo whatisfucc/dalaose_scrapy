@@ -8,7 +8,6 @@ begin.py
 .vscode
 test.py
 table_name.py
-settings.py
 ENV
 env
 venv
