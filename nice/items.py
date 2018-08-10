@@ -19,3 +19,7 @@ class NiceItemPhoto(scrapy.Item):
     file_type = scrapy.Field()
     film_urls = scrapy.Field()
     file = scrapy.Field()
+    no = scrapy.Field()
+    store = scrapy.Field()
+    http_method = scrapy.Field()
+    body = scrapy.Field()

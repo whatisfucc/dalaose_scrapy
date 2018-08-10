@@ -902,3 +902,7 @@ AGENT = ["Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0
          "Opera/9.80 (Windows NT 5.2; U; en) Presto/2.2.15 Version/10.00",
          "Opera/9.80 (Windows NT 5.1; U; zh-cn) Presto/2.2.15 Version/10.00",
          "Opera/9.80 (Windows NT 5.1; U; ru) Presto/2.2.15 Version/10.00"]
+
+FILTER_DB = 1
+FILTER_HOST = '127.0.0.1'
+FILTER_PASS = ''

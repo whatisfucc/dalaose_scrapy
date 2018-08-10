@@ -7,10 +7,14 @@
 
 
 import random
+from urllib.parse import quote
 
+from scrapy.exceptions import IgnoreRequest
 from scrapy.downloadermiddlewares.useragent import UserAgentMiddleware
 from scrapy import signals
+
 from nice.config import AGENT
+from nice.utils.BloomFilter import BloomFilter
 
 
 class TutorialSpiderMiddleware(object):
@@ -77,3 +81,17 @@ class RotateUserAgentMiddleware(UserAgentMiddleware):
         n = random.randint(0, len(AGENT) - 1)
         ua = AGENT[n]
         request.headers.setdefault('User-Agent', ua)
+
+
+class FilterMiddleware(object):
+    def __init__(self):
+        self.filter = BloomFilter(key='dalaose')
+
+    def process_request(self, request, spider):
+        if request.url not in spider.start_urls and len(spider.start_urls) > 0:
+            if request.method == 'GET' and self.filter.is_contains(quote(request.url)):
+                raise IgnoreRequest("IgnoreRequest : %s" % request.url)
+            else:
+                fingerprint = quote(request.url) + request.body.decode('utf8')
+                if self.filter.is_contains(fingerprint):
+                    raise IgnoreRequest("IgnoreRequest : %s" % request.url)

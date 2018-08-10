@@ -8,11 +8,13 @@
 #     http://doc.scrapy.org/en/latest/topics/settings.html
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
-
+import os
 BOT_NAME = 'nice'
 
 SPIDER_MODULES = ['nice.spiders']
 NEWSPIDER_MODULE = 'nice.spiders'
+
+ABSOLUTE_PATH = os.path.dirname(os.path.realpath(__file__))
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'nice (+http://www.yourdomain.com)'
@@ -53,20 +55,25 @@ ROBOTSTXT_OBEY = False
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
    'nice.middlewares.RotateUserAgentMiddleware': 543,
+   'nice.middlewares.FilterMiddleware': 1,
 }
 
 # Enable or disable extensions
 # See http://scrapy.readthedocs.org/en/latest/topics/extensions.html
-# EXTENSIONS = {
-#    'scrapy.extensions.telnet.TelnetConsole': None,
-# }
+EXTENSIONS = {
+    # 关闭telnet
+    'scrapy.telnet.TelnetConsole': None,
+    'nice.extensions.extensions.Extensions': 999
+}
 
 # Configure item pipelines
 # See http://scrapy.readthedocs.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
     # 'nice.pipelines.download_pipeline.NiceTextPipeline': 100,
     # 'nice.pipelines.download_pipeline.NiceImgDownloadPipeline': 300,
-    'nice.pipelines.download_pipeline.NiceFilmPipeline': 400,
+    'nice.pipelines.format_pipeline.FilterPipeline': 1,
+    'nice.pipelines.filter_pipeline.FilterPipeline': 2,
+    'nice.pipelines.download_pipeline.NiceFilmPipeline': 3,
 }
 
 # Enable and configure the AutoThrottle extension (disabled by default)
@@ -96,4 +103,4 @@ IMAGES_EXPIRES = 90
 
 FILES_STORE = '/Users/dzsbhmacbookair/python_pro/nice/films'
 
-# DOWNLOAD_DELAY = '0.5'
+# DOWNLOAD_DELAY = '0.1'
