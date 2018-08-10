@@ -50,7 +50,7 @@ class NiceTextPipeline(object):
 class NiceFilmPipeline(FilesPipeline):
     def get_media_requests(self, item, info):
         for url in item['film_urls']:
-            yield Request(url, meta={'file_name': item['title']})
+            yield Request(url, meta={'file_name': join(item['title'], item['menu'])})
 
     def file_path(self, request, response=None, info=None):
         path = urlparse(request.url).path
