@@ -3,7 +3,7 @@
 # Author: fzk
 # @Time  13:31
 
-SPLASH_URL = 'http://132.232.33.220:8050'
+SPLASH_URL = 'http://*.*.*.*:8050'
 
 DOWNLOADER_MIDDLEWARES = {'scrapy_splash.SplashCookiesMiddleware': 723,
                           'scrapy_splash.SplashMiddleware': 725,
