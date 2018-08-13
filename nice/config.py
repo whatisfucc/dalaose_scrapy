@@ -906,3 +906,11 @@ AGENT = ["Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; WOW64; Trident/6.0
 FILTER_DB = 1
 FILTER_HOST = '127.0.0.1'
 FILTER_PASS = ''
+
+MYSQL_HOST = '127.0.0.1'
+MYSQL_DB = 'test'
+MYSQL_USER = 'root'
+MYSQL_PASS = 'demo'
+
+TABLE = 'dianping'
+DB_CONNECT_STRING = 'mysql+mysqldb://{0}:{1}@{2}/{3}?charset=utf8'.format(MYSQL_USER, MYSQL_PASS, MYSQL_HOST, MYSQL_DB)

@@ -9,6 +9,7 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 import os
+
 BOT_NAME = 'nice'
 
 SPIDER_MODULES = ['nice.spiders']
@@ -54,8 +55,9 @@ ROBOTSTXT_OBEY = False
 # Enable or disable downloader middlewares
 # See http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 DOWNLOADER_MIDDLEWARES = {
-   'nice.middlewares.RotateUserAgentMiddleware': 543,
-   'nice.middlewares.FilterMiddleware': 1,
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware': None,
+    'nice.middlewares.RotateUserAgentMiddleware': 1,
+    'nice.middlewares.FilterMiddleware': 2,
 }
 
 # Enable or disable extensions
@@ -104,3 +106,4 @@ IMAGES_EXPIRES = 90
 FILES_STORE = '/Users/dzsbhmacbookair/python_pro/nice/films'
 
 # DOWNLOAD_DELAY = '0.1'
+INSERT_NUM = 3

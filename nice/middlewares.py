@@ -67,20 +67,13 @@ class TutorialSpiderMiddleware(object):
 
 class RotateUserAgentMiddleware(UserAgentMiddleware):
     def process_request(self, request, spider):
-        # uafile = "user_agents.txt"
-        # uas = []
-        # # TODO 可优化, 不用读完全部的
-        # with open(uafile, 'rb') as uaf:
-        #     for ua in uaf.readlines():
-        #         if ua:
-        #             uas.append(ua.strip()[1:-1 - 1])
-        # random.shuffle(uas)
-        # ua = random.choice(uas)
-        # log.msg('Current UserAgent: ' + ua, level='INFO')
-        # request.headers.setdefault('User-Agent', ua)
         n = random.randint(0, len(AGENT) - 1)
         ua = AGENT[n]
-        request.headers.setdefault('User-Agent', ua)
+        # request.headers.setdefault('User-Agent', ua)
+        request.headers.setdefault('User-Agent',
+                                   # 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/68.0.3440.106 Safari/537.36'
+                                   'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36'
+                                   )
 
 
 class FilterMiddleware(object):

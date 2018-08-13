@@ -23,3 +23,23 @@ class NiceItemPhoto(scrapy.Item):
     store = scrapy.Field()
     http_method = scrapy.Field()
     body = scrapy.Field()
+
+
+class DianpingItem(scrapy.Item):
+    no = scrapy.Field()
+    store = scrapy.Field()
+    http_method = scrapy.Field()
+    body = scrapy.Field()
+    source = scrapy.Field()
+    menu = scrapy.Field()
+    title = scrapy.Field()
+    subway = scrapy.Field()
+    table = scrapy.Field()
+    shop_name = scrapy.Field()
+    level = scrapy.Field()
+    review_count = scrapy.Field()
+    avg_price = scrapy.Field()
+    score_taste = scrapy.Field()
+    score_env = scrapy.Field()
+    score_service = scrapy.Field()
+    tel = scrapy.Field()
