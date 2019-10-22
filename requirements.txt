@@ -14,7 +14,7 @@ iso8601==0.1.12
 lxml==4.2.3
 m3u8==0.3.5
 parsel==1.5.0
-Pillow==5.2.0
+Pillow==6.2.0
 pyasn1==0.4.4
 pyasn1-modules==0.2.2
 pycparser==2.18
