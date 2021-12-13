@@ -11,7 +11,7 @@ hyperlink==18.0.0
 idna==2.7
 incremental==17.5.0
 iso8601==0.1.12
-lxml==4.2.3
+lxml==4.6.5
 m3u8==0.3.5
 parsel==1.5.0
 Pillow==5.2.0
